@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../store";
-import { Link, useNavigate } from "react-router-dom";
-import Dropdown from "../../components/Dropdown";
+import { Link } from "react-router-dom";
+import Dropdown from "../../components/Dropdown/Dropdown";
+import Modal from "../../components/Modal/Modal";
 import { departments, states } from "../../constants/data";
 
 const CreateEmployee = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -21,6 +21,8 @@ const CreateEmployee = () => {
     zipCode: "",
   });
 
+  const [showModal, setShowModal] = useState(false);
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
@@ -29,7 +31,20 @@ const CreateEmployee = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addEmployee(formData));
-    navigate("/employees");
+
+    setShowModal(true);
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      department: "",
+      startDate: "",
+      dateOfBirth: "",
+      street: "",
+      city: "",
+      state: "",
+      zipCode: "",
+    });
   };
 
   return (
@@ -42,14 +57,14 @@ const CreateEmployee = () => {
         <h2>Create Employee</h2>
         <form onSubmit={handleSubmit}>
           <div>
-
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            id="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-          />
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <label htmlFor="lastName">Last Name</label>
@@ -58,6 +73,7 @@ const CreateEmployee = () => {
             id="lastName"
             value={formData.lastName}
             onChange={handleChange}
+            required
           />
 
           <Dropdown
@@ -67,13 +83,13 @@ const CreateEmployee = () => {
             onChange={(value) => setFormData({ ...formData, department: value })}
           />
 
-
           <label htmlFor="startDate">Start Date</label>
           <input
             type="date"
             id="startDate"
             value={formData.startDate}
             onChange={handleChange}
+            required
           />
 
           <label htmlFor="dateOfBirth">Date of Birth</label>
@@ -82,6 +98,7 @@ const CreateEmployee = () => {
             id="dateOfBirth"
             value={formData.dateOfBirth}
             onChange={handleChange}
+            required
           />
 
           <fieldset>
@@ -93,6 +110,7 @@ const CreateEmployee = () => {
               id="street"
               value={formData.street}
               onChange={handleChange}
+              required
             />
 
             <label htmlFor="city">City</label>
@@ -101,6 +119,7 @@ const CreateEmployee = () => {
               id="city"
               value={formData.city}
               onChange={handleChange}
+              required
             />
 
             <Dropdown
@@ -116,12 +135,20 @@ const CreateEmployee = () => {
               id="zipCode"
               value={formData.zipCode}
               onChange={handleChange}
+              required
             />
           </fieldset>
 
-          <button type="submit">Save</button>
+          <button className="button-form" type="submit">Save</button>
         </form>
       </div>
+
+      {showModal && (
+        <Modal
+          message="Employee created!"
+          onClose={() => setShowModal(false)}
+        />
+      )}
     </div>
   );
 };

@@ -59,7 +59,7 @@ form fieldset legend {
   color: #93ad18;
 }
 
-form button {
+.button-form {
   padding: 10px 15px;
   font-size: 1rem;
   color: #fff;
@@ -69,6 +69,10 @@ form button {
   cursor: pointer;
   text-align: center;
   margin-top: 10px;
+}
+
+.button-form:hover {
+  background-color: #5a6f07;
 }
 
 table {
@@ -94,20 +98,6 @@ table tbody tr:nth-child(even) {
 
 table tbody tr:hover {
   background-color: #f1f1f1;
-}
-
-button {
-  padding: 10px 15px;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #93ad18;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #5a6f07;
 }
 
 #employee-div a {
