@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import Modal from "../../components/Modal/Modal";
 import { departments, states } from "../../constants/data";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const CreateEmployee = () => {
   const dispatch = useDispatch();
@@ -13,8 +15,8 @@ const CreateEmployee = () => {
     firstName: "",
     lastName: "",
     department: "",
-    startDate: "",
-    dateOfBirth: "",
+    startDate: null,
+    dateOfBirth: null,
     street: "",
     city: "",
     state: "",
@@ -30,7 +32,16 @@ const CreateEmployee = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addEmployee(formData));
+
+    dispatch(addEmployee({
+      ...formData,
+      startDate: formData.startDate
+        ? formData.startDate.toLocaleDateString("fr-FR")
+        : null,
+      dateOfBirth: formData.dateOfBirth
+        ? formData.dateOfBirth.toLocaleDateString("fr-FR")
+        : null,
+    }));
 
     setShowModal(true);
 
@@ -38,8 +49,8 @@ const CreateEmployee = () => {
       firstName: "",
       lastName: "",
       department: "",
-      startDate: "",
-      dateOfBirth: "",
+      startDate: null,
+      dateOfBirth: null,
       street: "",
       city: "",
       state: "",
@@ -84,21 +95,21 @@ const CreateEmployee = () => {
           />
 
           <label htmlFor="startDate">Start Date</label>
-          <input
-            type="date"
-            id="startDate"
-            value={formData.startDate}
-            onChange={handleChange}
-            required
+          <DatePicker
+            selected={formData.startDate}
+            onChange={(date) => setFormData({ ...formData, startDate: date })}
+            dateFormat="dd-MM-yyyy"
+            placeholderText="Select a start date"
+            className="date-picker-input"
           />
 
           <label htmlFor="dateOfBirth">Date of Birth</label>
-          <input
-            type="date"
-            id="dateOfBirth"
-            value={formData.dateOfBirth}
-            onChange={handleChange}
-            required
+          <DatePicker
+            selected={formData.dateOfBirth}
+            onChange={(date) => setFormData({ ...formData, dateOfBirth: date })}
+            dateFormat="dd-MM-yyyy"
+            placeholderText="Select date of birth"
+            className="date-picker-input"
           />
 
           <fieldset>
