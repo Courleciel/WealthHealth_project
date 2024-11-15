@@ -16,6 +16,7 @@ const EmployeeList = () => {
             <th>Department</th>
             <th>Start Date</th>
             <th>Date of Birth</th>
+            <th>Street</th>
             <th>City</th>
             <th>State</th>
             <th>Zip Code</th>
@@ -29,6 +30,7 @@ const EmployeeList = () => {
               <td>{employee.department}</td>
               <td>{employee.startDate}</td>
               <td>{employee.dateOfBirth}</td>
+              <td>{employee.street}</td>
               <td>{employee.city}</td>
               <td>{employee.state}</td>
               <td>{employee.zipCode}</td>
