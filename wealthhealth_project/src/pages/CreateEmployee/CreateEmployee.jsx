@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addEmployee } from "../../store";
 import { Link, useNavigate } from "react-router-dom";
+import Dropdown from "../../components/Dropdown";
+import { departments, states } from "../../constants/data";
 
 const CreateEmployee = () => {
   const dispatch = useDispatch();
@@ -39,6 +41,8 @@ const CreateEmployee = () => {
         <Link to="/employees">View Current Employees</Link>
         <h2>Create Employee</h2>
         <form onSubmit={handleSubmit}>
+          <div>
+
           <label htmlFor="firstName">First Name</label>
           <input
             type="text"
@@ -46,6 +50,7 @@ const CreateEmployee = () => {
             value={formData.firstName}
             onChange={handleChange}
           />
+          </div>
 
           <label htmlFor="lastName">Last Name</label>
           <input
@@ -55,19 +60,12 @@ const CreateEmployee = () => {
             onChange={handleChange}
           />
 
-          <label htmlFor="department">Department</label>
-          <select
-            id="department"
+          <Dropdown
+            label="Department"
+            options={departments}
             value={formData.department}
-            onChange={handleChange}
-          >
-            <option value="">Select Department</option>
-            <option value="Sales">Sales</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Engineering">Engineering</option>
-            <option value="Human Resources">Human Resources</option>
-            <option value="Legal">Legal</option>
-          </select>
+            onChange={(value) => setFormData({ ...formData, department: value })}
+          />
 
 
           <label htmlFor="startDate">Start Date</label>
@@ -105,12 +103,11 @@ const CreateEmployee = () => {
               onChange={handleChange}
             />
 
-            <label htmlFor="state">State</label>
-            <input
-              type="text"
-              id="state"
+            <Dropdown
+              label="State"
+              options={states}
               value={formData.state}
-              onChange={handleChange}
+              onChange={(value) => setFormData({ ...formData, state: value })}
             />
 
             <label htmlFor="zipCode">Zip Code</label>
