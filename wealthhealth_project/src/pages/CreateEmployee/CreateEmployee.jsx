@@ -56,12 +56,19 @@ const CreateEmployee = () => {
           />
 
           <label htmlFor="department">Department</label>
-          <input
-            type="text"
+          <select
             id="department"
             value={formData.department}
             onChange={handleChange}
-          />
+          >
+            <option value="">Select Department</option>
+            <option value="Sales">Sales</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Human Resources">Human Resources</option>
+            <option value="Legal">Legal</option>
+          </select>
+
 
           <label htmlFor="startDate">Start Date</label>
           <input
