@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./DataTable.css";
 
 const DataTable = ({ employees }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,24 +38,34 @@ const DataTable = ({ employees }) => {
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-
-      <select
-        value={rowsPerPage}
-        onChange={(e) => {
-          setRowsPerPage(Number(e.target.value));
-          setCurrentPage(1);
-        }}
-      >
-        <option value={10}>10</option>
-        <option value={30}>30</option>
-        <option value={50}>50</option>
-      </select>
+      <div className="table-header">
+        <div className="entries">
+          <label>
+            <select
+              value={rowsPerPage}
+              onChange={(e) => {
+                setRowsPerPage(Number(e.target.value));
+                setCurrentPage(1);
+              }}
+            >
+              <option value={10}>10</option>
+              <option value={30}>30</option>
+              <option value={50}>50</option>
+            </select>
+          </label>
+        </div>
+        <div className="search">
+          <label>
+            Search:
+            <input
+              type="text"
+              placeholder="Search employees..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </label>
+        </div>
+      </div>
 
       <table className="display">
         <thead>
@@ -95,7 +106,7 @@ const DataTable = ({ employees }) => {
         </tbody>
       </table>
 
-      <div>
+      <div className="pagination">
         <button
           disabled={currentPage === 1}
           onClick={() => setCurrentPage((prev) => prev - 1)}
