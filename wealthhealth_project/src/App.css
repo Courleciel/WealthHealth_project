@@ -116,3 +116,73 @@ table tbody tr:hover {
 .react-datepicker-wrapper {
   display: block;
 }
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .title h1 {
+    font-size: 2rem;
+  }
+
+  form fieldset {
+    padding: 20px;
+  }
+
+  .button-form {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  table th, table td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 10px;
+    margin: 10px auto;
+  }
+
+  .title h1 {
+    font-size: 1.8rem;
+    margin: 10px 0;
+  }
+
+  form input, .date-picker-input {
+    width: 100%;
+  }
+
+  form fieldset {
+    padding: 10px;
+  }
+
+  .button-form {
+    width: 100%;
+    padding: 10px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  table thead {
+    font-size: 14px;
+  }
+
+  table th, table td {
+    padding: 5px;
+  }
+
+  #employee-div a {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+  }
+}
