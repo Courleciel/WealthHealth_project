@@ -1,11 +1,63 @@
-label {
-  font-weight: bold;
+.dropdown {
+  margin: 10px 0;
+  font-size: 1rem;
 }
 
-select {
+.dropdown label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dropdown select {
+  width: 100%;
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 3px;
-  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  appearance: none;
+  cursor: pointer;
+}
+
+.dropdown select option:disabled {
+  color: #aaa;
+}
+
+.dropdown select option {
+  font-size: 1rem;
+  padding: 5px;
+}
+
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .dropdown select {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .dropdown select option {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .dropdown {
+    margin: 5px 0;
+  }
+
+  .dropdown label {
+    font-size: 0.9rem;
+  }
+
+  .dropdown select {
+    font-size: 0.8rem;
+    padding: 6px;
+  }
+
+  .dropdown select option {
+    font-size: 0.8rem;
+    padding: 4px;
+  }
 }
