@@ -82,11 +82,21 @@ const DataTable = ({ employees }) => {
             <th onClick={() => handleSort("startDate")}>
               Start Date {sortColumn === "startDate" && (sortOrder === "asc" ? "▲" : "▼")}
             </th>
-            <th>Date of Birth</th>
-            <th>Street</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip Code</th>
+            <th onClick={() => handleSort("dateOfBirth")}>
+              Date of Birth {sortColumn === "dateOfBirth" && (sortOrder === "asc" ? "▲" : "▼")}
+            </th>
+            <th onClick={() => handleSort("street")}>
+              Street {sortColumn === "street" && (sortOrder === "asc" ? "▲" : "▼")}
+            </th>
+            <th onClick={() => handleSort("city")}>
+              City {sortColumn === "city" && (sortOrder === "asc" ? "▲" : "▼")}
+            </th>
+            <th onClick={() => handleSort("state")}>
+              State {sortColumn === "state" && (sortOrder === "asc" ? "▲" : "▼")}
+            </th>
+            <th onClick={() => handleSort("zipCode")}>
+              Zip Code {sortColumn === "zipCode" && (sortOrder === "asc" ? "▲" : "▼")}
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -105,6 +115,7 @@ const DataTable = ({ employees }) => {
           ))}
         </tbody>
       </table>
+
 
       <div className="footer">
         <p className="employees-found">{filteredEmployees.length} employees found.</p>
