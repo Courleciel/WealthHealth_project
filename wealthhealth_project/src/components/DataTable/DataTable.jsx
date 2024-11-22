@@ -106,25 +106,26 @@ const DataTable = ({ employees }) => {
         </tbody>
       </table>
 
-      <div className="pagination">
-        <button
-          disabled={currentPage === 1}
-          onClick={() => setCurrentPage((prev) => prev - 1)}
-        >
-          Previous
-        </button>
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
-        <button
-          disabled={currentPage === totalPages}
-          onClick={() => setCurrentPage((prev) => prev + 1)}
-        >
-          Next
-        </button>
+      <div className="footer">
+        <p className="employees-found">{filteredEmployees.length} employees found.</p>
+        <div className="pagination">
+          <button
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage((prev) => prev - 1)}
+          >
+            Previous
+          </button>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage((prev) => prev + 1)}
+          >
+            Next
+          </button>
+        </div>
       </div>
-
-      <p>{filteredEmployees.length} employees found.</p>
     </div>
   );
 };
