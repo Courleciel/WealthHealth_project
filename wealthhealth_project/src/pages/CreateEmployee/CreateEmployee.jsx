@@ -33,15 +33,17 @@ const CreateEmployee = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(addEmployee({
-      ...formData,
-      startDate: formData.startDate
-        ? formData.startDate.toLocaleDateString("fr-FR")
-        : null,
-      dateOfBirth: formData.dateOfBirth
-        ? formData.dateOfBirth.toLocaleDateString("fr-FR")
-        : null,
-    }));
+    dispatch(
+      addEmployee({
+        ...formData,
+        startDate: formData.startDate
+          ? formData.startDate.toLocaleDateString("fr-FR")
+          : null,
+        dateOfBirth: formData.dateOfBirth
+          ? formData.dateOfBirth.toLocaleDateString("fr-FR")
+          : null,
+      })
+    );
 
     setShowModal(true);
 
@@ -97,7 +99,9 @@ const CreateEmployee = () => {
           <label htmlFor="startDate">Start Date</label>
           <DatePicker
             selected={formData.startDate}
-            onChange={(date) => setFormData({ ...formData, startDate: date })}
+            onChange={(date) =>
+              setFormData({ ...formData, startDate: date })
+            }
             dateFormat="dd-MM-yyyy"
             placeholderText="Select a start date"
             className="date-picker-input"
@@ -106,7 +110,9 @@ const CreateEmployee = () => {
           <label htmlFor="dateOfBirth">Date of Birth</label>
           <DatePicker
             selected={formData.dateOfBirth}
-            onChange={(date) => setFormData({ ...formData, dateOfBirth: date })}
+            onChange={(date) =>
+              setFormData({ ...formData, dateOfBirth: date })
+            }
             dateFormat="dd-MM-yyyy"
             placeholderText="Select date of birth"
             className="date-picker-input"
@@ -137,7 +143,9 @@ const CreateEmployee = () => {
               label="State"
               options={states}
               value={formData.state}
-              onChange={(value) => setFormData({ ...formData, state: value })}
+              onChange={(value) =>
+                setFormData({ ...formData, state: value })
+              }
             />
 
             <label htmlFor="zipCode">Zip Code</label>
@@ -150,7 +158,9 @@ const CreateEmployee = () => {
             />
           </fieldset>
 
-          <button className="button-form" type="submit">Save</button>
+          <button className="button-form" type="submit">
+            Save
+          </button>
         </form>
       </div>
 
