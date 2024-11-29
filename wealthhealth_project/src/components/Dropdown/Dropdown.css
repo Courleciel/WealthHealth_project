@@ -54,6 +54,7 @@
   .dropdown select {
     font-size: 0.8rem;
     padding: 6px;
+    width: 98%;
   }
 
   .dropdown select option {

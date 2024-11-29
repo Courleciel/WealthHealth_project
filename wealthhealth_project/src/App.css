@@ -14,8 +14,7 @@ body {
 }
 
 .container {
-  width: 90%;
-  max-width: 1024px;
+
   margin: 20px auto;
   padding: 40px;
   background: #fff;
@@ -79,6 +78,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
+  table-layout: auto;
 }
 
 table thead {
@@ -156,7 +156,7 @@ table tbody tr:hover {
   }
 
   form input, .date-picker-input {
-    width: 100%;
+    width: 95%;
   }
 
   form fieldset {
@@ -184,5 +184,9 @@ table tbody tr:hover {
     width: 100%;
     text-align: center;
     margin: 10px 0;
+  }
+
+  .table-container {
+    overflow-x: auto;
   }
 }

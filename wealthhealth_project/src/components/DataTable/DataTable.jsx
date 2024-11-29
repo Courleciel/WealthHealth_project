@@ -67,6 +67,8 @@ const DataTable = ({ employees }) => {
         </div>
       </div>
 
+      <div class="table-container">
+
       <table className="display">
         <thead>
           <tr>
@@ -115,6 +117,7 @@ const DataTable = ({ employees }) => {
           ))}
         </tbody>
       </table>
+      </div>
 
 
       <div className="footer">
