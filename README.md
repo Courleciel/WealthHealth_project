@@ -44,13 +44,13 @@ Suivez ces étapes pour configurer le projet localement :
    git clone https://github.com/Courleciel/WealthHealth_project.git
 2. Accédez au répertoire du projet :
   ```bash
-  cd WealthHealth_project
+   cd WealthHealth_project
 3. Installer les dépendances :
   ```bash
-  npm install
+   npm install
 4. Lancez l'application :
   ```bash
-  npm start
+   npm start
 5. Ouvrez votre navigateur et accédez à l'adresse suivante : http://localhost:3000.
 
 ## Utilisation
