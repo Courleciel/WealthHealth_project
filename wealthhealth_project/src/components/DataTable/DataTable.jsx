@@ -67,7 +67,7 @@ const DataTable = ({ employees }) => {
         </div>
       </div>
 
-      <div class="table-container">
+      <div className="table-container">
 
       <table className="display">
         <thead>
